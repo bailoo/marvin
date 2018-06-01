@@ -171,7 +171,7 @@ class Deals:
 				artists_requested = deal_data["ef1b3ca0c720a4c39ddf75adbc38ab4f8248597b"]
 
 		except Exception as e:
-			continue
+			print (f"[!] Error inside __DealDetails__() function. Exception: {e}")
 
 		finally:
 			# Table 2: GTQ Details
