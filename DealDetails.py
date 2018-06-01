@@ -82,10 +82,10 @@ class Deals:
 		# Deal User Information
 		person_name = person_data["name"]
 		person_email = person_data["email"][0]["value"]
-		person_value = person_data["value"]
+		person_id = person_data["value"]
 
 		# Table 1: User and Person Information
-		user_person = (idx, user_id, user_name, user_email, person_name, person_email, person_value)
+		user_person = (idx, user_id, user_name, user_email, person_id, person_name, person_email)
 
 		# Return the tuple of Deal Owner and User Information.
 		return user_person
@@ -276,7 +276,7 @@ class Deals:
 		# User-Person DataFrame
 		self.up_df = pd.DataFrame(self.UP_List, columns = ["ID", 
 			"Owner_ID", "Owner_Name", "Owner_Email", 
-			"User_Name", "User_Email", "User_Value"])
+			"User_ID", "User_Name", "User_Email",])
 
 		# GTQ-PYR Details
 		self.deal_df = pd.DataFrame(self.Deal_List, columns = ["ID", "Title", 
