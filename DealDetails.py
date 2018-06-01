@@ -12,14 +12,14 @@ class Deals:
 			api_token (str): Pipedrive API Token to Fetch GTQ Deails
 
 			limit (number): Items shown per page. 
-							Default limit is 100, 
-							Maximum limit is 500.
+					Default limit is 100, 
+					Maximum limit is 500.
 
 			start (number): Pagination Start
-					        Default start is 0
+					Default start is 0
 
 			num_of_pages(number): Number of Pages to Fetch
-								  Default 1
+					      Default 1
 		'''
 
 		assert api_token != "", ("API Token cannot be empty")
@@ -96,7 +96,7 @@ class Deals:
 				Parse the Details for a Particular Deal.
 
 			Parameter:
-				deal_data (JSON Formatted):	Contains all the Details regrading a particular DEAL
+				deal_data (JSON Formatted): Contains all the Details regrading a particular DEAL
 
 			Return:
 				A Tuple of Detailed Information for the Deal.
