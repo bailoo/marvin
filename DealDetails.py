@@ -9,7 +9,7 @@ class Deals:
 	def __init__(self, api_token, limit = 100, start = 0, num_of_pages = 1):
 		'''
 		Parameters:
-			api_token (str): Pipedrive API Token to Fetch GTQ Deails
+			api_token (str): Pipedrive API Token to Fetch PYR + GTQ Deails
 
 			limit (number): Items shown per page. 
 					Default limit is 100, 
