@@ -9,7 +9,7 @@ class Deals:
 	def __init__(self, api_token, limit = 100, start = 0, num_of_pages = 1):
 		'''
 		Parameters:
-			api_token (str): Pipedrive API Token to Fetch GTQ Deails
+			api_token (str): Pipedrive API Token to Fetch PYR + GTQ Deails
 
 			limit (number): Items shown per page. 
 					Default limit is 100, 
@@ -114,7 +114,10 @@ class Deals:
 		location = ""
 		budget = 0
 		artists_requested = ""
+		artists_requested_url = ""
 		artists_pitched = ""
+		source = ""
+		add_time = ""
 
 		try:
 			## ID of the Deal
@@ -132,6 +135,9 @@ class Deals:
 			## lost reason
 			if status == "lost":
 				lost = deal_data["lost_reason"]
+
+			if deal_data['add_time']:
+				add_time = deal_data['add_time']
 
 			## Category
 			if deal_data["61a501536a4065f5a970be5c6de536cf7ad14078"]:
@@ -161,22 +167,23 @@ class Deals:
 			if deal_data["00ad4eb98f63fbc58824c74cb67ffafefa51b41b"]:
 				artists_pitched = deal_data["00ad4eb98f63fbc58824c74cb67ffafefa51b41b"]
 
-				artists_pitched = artists_pitched.split("\n")
-
-				for i in range(len(artists_pitched)):
-					artists_pitched[i] = artists_pitched[i].split("/")[-1]
-
 			## Artists Requested
 			if deal_data["ef1b3ca0c720a4c39ddf75adbc38ab4f8248597b"]:
 				artists_requested = deal_data["ef1b3ca0c720a4c39ddf75adbc38ab4f8248597b"]
+
+			if deal_data["ab189305591baa33ac12419625976036803cf1ee"]:
+				artists_requested_url = deal_data["ab189305591baa33ac12419625976036803cf1ee"]
+
+			## Source of the Deal
+			if deal_data["130678495c807efda3c98a312f3061403c1f1b7f"]:
+				source = deal_data["130678495c807efda3c98a312f3061403c1f1b7f"]
 
 		except Exception as e:
 			print (f"[!] Error inside __DealDetails__() function. Exception: {e}")
 
 		finally:
 			# Table 2: GTQ Details
-			info = (idx, title, category, event, location, budget, gathering, date, artists_pitched, artists_requested, status, lost)
-
+			info = (idx, title, category, event, location, budget, gathering, date, add_time, artists_pitched, artists_requested, artists_requested_url, status, lost, source)
 		# Return the Tuple of Deal Details
 		return info
 
@@ -274,15 +281,15 @@ class Deals:
 		# Build DataFrame.
 
 		# User-Person DataFrame
-		self.up_df = pd.DataFrame(self.UP_List, columns = ["ID", 
+		self.up_df = pd.DataFrame(self.UP_List, columns = ["Deal_ID", 
 			"Owner_ID", "Owner_Name", "Owner_Email", 
 			"User_ID", "User_Name", "User_Email",])
 
 		# GTQ-PYR Details
-		self.deal_df = pd.DataFrame(self.Deal_List, columns = ["ID", "Title", 
-			"Cateogry", "Event", "Location", "Budget", "Gathering", "Date",
-			"Artists_Pitched", "Artists_Requested",
-			"status", "lost_reason"])
+		self.deal_df = pd.DataFrame(self.Deal_List, columns = ["Deal_ID", "Title", 
+			"Category", "Event", "Location", "Budget", "Gathering", "Event_Date", "Deal_Date",
+			"Artists_Pitched", "Artists_Requested", "Artists_Requested_URL",
+			"status", "lost_reason", "Source"])
 
 	def save(self):
 		'''
