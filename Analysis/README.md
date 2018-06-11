@@ -1,15 +1,21 @@
 # Analysis of Deal Information.
 
-### Installation
-TO Install the necessay libraries for running the Notebook.<br>
-> pip3 install -r requirements.txt
+## Dataset
 
-### Notebook
-TO run & replicate the Notebook along with all the results.<br>
+`CSV Data/ArtistsMapping.csv`: Mapping of Artists ID to (Category and ProfileURL). <br>
+`CSV Data/deal-details-infomation.csv`: Deals Data fetched from Pipedrive using `DealsDetails.py`. <br>
+`CSV Data/updated-deal-details-infomation.csv`: Cleaned and Parsed version of `deal-details-infomation.csv`. <br>
+`CSV Data/PYR.csv`: Data of only Post Your Requirements Deals. <br>
 
-Steps:
-      
-      1. Clone the repo.
-      2. Run `pip3 install -r requirements.txt`.
-      3. Open CMD or Terminal inside the cloned repo.
-      4. Run `jupyter notebook`.
+Both `deal-details-infomation.csv` & `updated-deal-details-infomation.csv` contains <b>Artists_Pitched</b> columns which represents the Artists Pitched to the Client on that Deal and contains the <b>ProfileURL</b> of the Artists Pitched.
+
+--
+
+## Notebook
+
+To run & replicate the Notebook along with all the results.<br>
+
+```shell
+cd marvin/Analysis
+jupyter notebook
+```
