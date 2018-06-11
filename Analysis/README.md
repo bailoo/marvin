@@ -9,7 +9,7 @@
 
 Both `deal-details-infomation.csv` & `updated-deal-details-infomation.csv` contains <b>Artists_Pitched</b> columns which represents the Artists Pitched to the Client on that Deal and contains the <b>ProfileURL</b> of the Artists Pitched.
 
---
+---
 
 ## Notebook
 
