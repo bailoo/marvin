@@ -18,4 +18,6 @@ How to deploy the REST API on [PythonAnywhere](https://www.pythonanywhere.com/).
 6. Reload the WebApplication.
 7. Done. The website is live at <i>your-username.pythonanywhere.com
   
+Access the Swagger UI by going to your-username.pythonanywhere.com/api/ui
+
 ---
