@@ -1,0 +1,49 @@
+swagger: "2.0"
+info:
+  description: Artist - Artist Similarity. Recommending Similar Artists to the User based on what he/she likes or dislikes.
+  version: "1.0.0"
+  title: Recommending Similar Artists.
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /Artists:
+    get:
+      operationId: Artists.returnRecommended
+      tags:
+        - "Artist"
+      summary: Artist - Artist Similarity.
+      description: Similar Artists based on Biography, Unique Tag Line, Tags and Type of Event.
+      parameters:
+        - name: artist_id
+          in: query
+          type: integer
+          description: ID of the Artist
+          required: true
+        - name: category
+          in: query
+          type: string
+          description: Category of the Artist
+          required: true
+      responses:
+        200:
+          description: SUCCESS.
+          schema:
+            type: array
+            items:
+              properties:
+                Artist_ID:
+                  type: integer
+                Artist_Name:
+                  type: string
+                Biography:
+                  type: string
+                Events:
+                  type: string
+                Tags:
+                  type: string  
