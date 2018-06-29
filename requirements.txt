@@ -4,3 +4,6 @@ numpy
 matplotlib
 scikit-learn
 jupyter
+connexion
+flask
+surprise
