@@ -127,4 +127,6 @@ print(algo.pipe(input))
 }
 ```
 
+For Examples Visit the [Algorithmia Site](https://algorithmia.com/algorithms/dlib/FaceDetection/docs).
+
 ---
